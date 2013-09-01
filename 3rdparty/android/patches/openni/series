@@ -1,0 +1,12 @@
+# This series applies on GIT commit 021e30e843cc5b0f58448e8fd723746bc3fb16ac
+paths.patch
+format-args.patch
+substitute-libusb.patch
+dynamic-linker.patch
+android-install-path-var.patch
+java-bindings-bugs.patch
+setschedparam.patch
+usb-race-condition.patch
+update-android-project.patch
+useless-android-files.patch
+build-flags.patch

@@ -1,0 +1,40 @@
+Move configuration files to a more conventional location.
+
+From: Roman Donchenko <roman.donchenko@itseez.com>
+
+This patch is originally from <https://kforge.ros.org/openni/drivers/>,
+modified by me.
+---
+ Platform/Linux/CreateRedist/install.sh |    2 +-
+ Source/OpenNI/XnOpenNI.cpp             |    4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Platform/Linux/CreateRedist/install.sh b/Platform/Linux/CreateRedist/install.sh
+index cdeff3f..9ac3482 100755
+--- a/Platform/Linux/CreateRedist/install.sh
++++ b/Platform/Linux/CreateRedist/install.sh
+@@ -74,7 +74,7 @@ fi
+ INSTALL_LIB=$rootfs/usr/lib
+ INSTALL_BIN=$rootfs/usr/bin
+ INSTALL_INC=$rootfs/usr/include/ni
+-INSTALL_VAR=$rootfs/var/lib/ni
++INSTALL_VAR=$rootfs/etc/openni
+ INSTALL_JAR=$rootfs/usr/share/java
+ 
+ # make all calls into OpenNI run in this filesystem
+diff --git a/Source/OpenNI/XnOpenNI.cpp b/Source/OpenNI/XnOpenNI.cpp
+index 92063cf..de4d7e7 100644
+--- a/Source/OpenNI/XnOpenNI.cpp
++++ b/Source/OpenNI/XnOpenNI.cpp
+@@ -6991,9 +6991,9 @@ XN_C_API XnStatus xnScriptNodeRun(XnNodeHandle hScript, XnEnumerationErrors* pEr
+ #if (XN_PLATFORM == XN_PLATFORM_WIN32)
+ 	#define XN_OPEN_NI_FILES_LOCATION "\\Data\\"
+ #elif (CE4100)
+-	#define XN_OPEN_NI_FILES_LOCATION "/usr/etc/ni/"
++	#define XN_OPEN_NI_FILES_LOCATION "/etc/openni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_LINUX_X86 || XN_PLATFORM == XN_PLATFORM_LINUX_ARM || XN_PLATFORM == XN_PLATFORM_MACOSX)
+-	#define XN_OPEN_NI_FILES_LOCATION "/var/lib/ni/"
++	#define XN_OPEN_NI_FILES_LOCATION "/etc/openni/"
+ #elif (XN_PLATFORM == XN_PLATFORM_ANDROID_ARM)
+ 	#define XN_OPEN_NI_FILES_LOCATION "/data/ni/"
+ #else
