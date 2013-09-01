@@ -1,4 +1,4 @@
 mobile
 ======
 
-PCL related code to mobile apps
+PCL related code for Android/iOS mobile apps
