@@ -155,7 +155,8 @@ public class MainActivity extends Activity {
             int vid = device.getVendorId(), pid = device.getProductId();
 
             if ((vid == 0x045e && pid == 0x02ae) || // Microsoft Kinect for Xbox 360
-                    (vid == 0x1d27 && pid == 0x0600)) { // ASUS Xtion PRO
+                    (vid == 0x1d27 && pid == 0x0600) || // ASUS Xtion PRO
+                    (vid == 0x1d27 && pid == 0x0601)) { // ASUS Xtion PRO
                 Log.i(TAG, "Requesting USB permission for device " + device.getDeviceName() + ".");
                 devices.add(device);
             }
